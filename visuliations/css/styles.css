@@ -42,3 +42,7 @@
 #body {
     background-color: #d3d3d3;
 }
+
+#title {
+    position: center;
+}
