@@ -3,6 +3,7 @@
 	bottom: 100px; 
 	left: 100px;
 	right: 100px;
+    background-color: #d3d3d3;
 	/*height: 1000px;
 	width: 800px;*/
 }
@@ -12,6 +13,7 @@
 	bottom: 100px; 
 	left: 100px;
 	right: 100px;
+    background-color: #d3d3d3;
 	/*height: 1000px;
 	width: 800px;*/
 }
@@ -22,6 +24,17 @@
 	bottom: 100px; 
 	left: 100px;
 	right: 100px;
+    background-color: #d3d3d3;
+	/*height: 1000px;
+	width: 800px;*/
+}
+#map{
+    background-color: #d3d3d3;
+    top:100px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+    background-color: #d3d3d3;
 	/*height: 1000px;
 	width: 800px;*/
 }

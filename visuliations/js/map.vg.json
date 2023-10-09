@@ -11,7 +11,7 @@
   "transform": [{
       "lookup": "id",
       "from": {
-          "data": {"url": "data/mean_data.csv"},
+          "data": {"url": "data/cause_of_death.csv"},
           "key": "Code",
           "fields": ["cause_of_death", "mean_death_count"]
       }
@@ -24,7 +24,7 @@
           "mark": {"type": "circle", "tooltip": {"content": "data"}},
           "encoding": {
               "size": {
-                  "field": "mean_death_count",
+                  "field": "Malaria",
                   "type": "quantitative",
                   "title": "Mean Death Count",
                   "scale": {"domain": [0, 8000]}
