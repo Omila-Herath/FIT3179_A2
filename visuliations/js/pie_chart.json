@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title":{ "text" :"Tuberculosis Deaths Per Continent",
+  "fontSize": 24},
+  "background":"#FAF9F6",
+  "height":400,
+  "width": 400,
+  "data": {
+    "url": "visuliations/data/tuberculosis_data.csv"
+  },
+
+
+  "mark": "arc",
+  "encoding": {
+    "theta": {
+      "field": "Tuberculosis",
+      "type": "quantitative",
+      "stack": true
+    },
+    "color": {
+      "field": "Continent",
+      "type": "nominal",
+      "scale": {"scheme": "tableau10"},
+      "legend": {
+        "title": "Continent"
+      }
+    },
+    "tooltip": [
+      {"field": "Continent", "type": "nominal", "title": "Continent"},
+      {"field": "Tuberculosis", "type": "quantitative", "title": "Deaths"},
+      {"field": "Year", "type": "temporal", "title": "Year"}
+    ]
+  },
+  "view": {"stroke": null}
+}

@@ -1,0 +1,142 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title":{ "text" :"Deaths over time",
+  "fontSize": 24},
+  "background":"#FAF9F6",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "url": "visuliations/data/cleaned_data.csv"
+  },
+
+
+  "params": [
+{
+        "name": "index",
+        "value": [{"x": {"year": 2005, "month": 1, "date": 1}}],
+        "select": {
+          "type": "point",
+          "encodings": ["x"],
+          "on": "pointerover",
+          "nearest": true
+        }
+      },
+    {
+      "name": "cause_of_death",
+      "value": "Meningitis",
+      "bind": {
+        "input": "select",
+        "options": [
+          
+          "Meningitis",
+          "Alzheimer_Disease_and_Other_Dementias",
+          "Parkinsons_Disease",
+          "Nutritional_Deficiencies",
+          "Malaria","Drowning",
+          "Interpersonal_Violence",
+          "Maternal_Disorders",
+          "HIV_AIDS",
+          "Drug_Use",
+          "Tuberculosis",
+          "Cardiovascular_Diseases",
+          "Lower_Respiratory_Infections",
+          "Neonatal_Disorders",
+          "Alcohol_Use",
+          "Self_Harm",
+          "Exposure_to_Nature",
+          "Diarrheal_Diseases",
+          "Environmental_Exposure",
+          "Neoplasms",
+          "Conflicts_and_Terrorism",
+          "Diabetes",
+          "Chronic_Kidney_Disease",
+          "Poisonings",
+          "Protein_Malnutrition",
+          "Road_Injuries",
+          "Chronic_Respiratory_Diseases",
+          "Cirrhosis",
+          "Digestive_Diseases",
+          "Fire",
+          "Acute_Hepatitis"
+          ],
+        "labels": [
+          "Meningitis",
+          "Alzheimer_Disease_and_Other_Dementias",
+          "Parkinsons_Disease",
+          "Nutritional_Deficiencies",
+          "Malaria","Drowning",
+          "Interpersonal_Violence",
+          "Maternal_Disorders",
+          "HIV_AIDS",
+          "Drug_Use",
+          "Tuberculosis",
+          "Cardiovascular_Diseases",
+          "Lower_Respiratory_Infections",
+          "Neonatal_Disorders",
+          "Alcohol_Use",
+          "Self_Harm",
+          "Exposure_to_Nature",
+          "Diarrheal_Diseases",
+          "Environmental_Exposure",
+          "Neoplasms",
+          "Conflicts_and_Terrorism",
+          "Diabetes",
+          "Chronic_Kidney_Disease",
+          "Poisonings",
+          "Protein_Malnutrition",
+          "Road_Injuries",
+          "Chronic_Respiratory_Diseases",
+          "Cirrhosis",
+          "Digestive_Diseases",
+          "Fire",
+          "Acute_Hepatitis"
+          ],
+          "name": "Cause of Death"
+ 
+      }
+    }
+
+  ],
+  "transform": [
+    {
+        "calculate": "datum[cause_of_death]",
+        "as": "chosen_cause"
+    }],
+
+    
+
+    "layer": [
+      
+      {
+        "mark": "area",
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "temporal",
+            "title": "Year"
+          },
+          "y": {
+            "field": "chosen_cause",
+            "type": "quantitative",
+            "title": "Number of Deaths"
+          },
+          "color": {
+            "field": "country_territory",
+            "type": "nominal",
+            "title": "Cause of Death",
+            "scale": {"scheme": "tableau10"}
+          },
+          "tooltip": [
+            {"field": "country_territory", "type": "nominal", "title": "Country"},
+            {"field": "chosen_cause", "type": "quantitative", "aggregate": "sum", "title": "Total Sum of Deaths"},
+            {"field": "Year", "type": "temporal",  "title": "Year"}
+          ]
+        }
+      }
+    ]
+  }
+  
+  
+  
+  
+  

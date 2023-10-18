@@ -1,64 +1,129 @@
 <!DOCTYPE html>
-<html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIT3179 Assignment 2</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <link rel="stylesheet" href="./visuliations/css/styles.css">
 
-    <!-- CSS file -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-    <h1 id = "title">Causes of Deaths around the World</h1>
 </head>
 
+<body>
+    <div class="base">
+        <div class="header-container">
+            <div class="text header-subcontainer">
+                <div class="text header">
+                    <h1>Metropolitan Melbourne Property Sales (2016-2017)</h1>
+                </div>
+                <div class="text subheading">
+                    <span></span>
+                </div>
+            </div>
+        </div>
 
-<body id = "body">
+        <div class="row row-top">
+            <div class="centre row-item">
+                <div id="area_chart" class="plot"></div>
+                <div class="text desc">
+                    <p>
+                        This heat map allows us to explore the frequency of property sales in Metropolitan Melbourne
+                        with respect to the building area and land size. Use the slider to filter by maximum sale price.
+                    </p>
+                </div>
+            </div>
 
-    <div id="map">
-        <h1>Map</h1>
+        </div>
+
+        <div class="row row-mid">
+            <div id="bar_chart" class="plot col-left row-item"></div>
+            <div id="line_chart" class="plot"></div>
+
+        </div>
+
+        <div class="row row-mid">
+            <div class="col-right row-item">
+                <div class="text desc">
+                    <p>
+                        This choropleth map is displays Metropolitan Melbourne suburbs, using colour to represent
+                        variations
+                        in the average property land size. It illustrates spatial patterns and differences in property
+                        land sizes
+                        across the Metropolitan area. Each suburb is shaded according to its respective average land
+                        size,
+                        with darker colors indicating larger properties, while lighter colours represent smaller ones.
+                        <br><br>
+                        It is evident that in general, properties are larger, the further they are from the Melbourne
+                        CBD.
+                        This is due to the fact that land is cheaper at these further distances because of lower demand,
+                        and because some of these properties (especially very far from the CBD) are farm-land.
+                        <br><br>
+                        This choropleth should be contrasted with the sale price choropleth (above), as it shows
+                        that in general, Melbournians pay more for smaller properties, and conversely less for larger
+                        properties.
+                    </p>
+                </div>
+            </div>
+            <div id="world_map" class="plot row-item col-left"></div>
+        </div>
+
+        <div class="row row-bottom">
+            <div class="col-left row-item">
+                <div id="pie_chart" class="plot"></div>
+                
+            </div>
+
+            <div class="row-item col-right">
+          
+                <div class="text desc">
+                    <p>
+                        This box-plot shows how property sale price trends have varied over time. The top and bottom of
+                        the boxes show the highest and lowest sale prices in a month, respectively. Use
+                        the drop-down to filter by council area.
+                    </p>
+                </div>
+            </div>
+
+        </div>
     </div>
+  
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var data_location = "data/mean_data.csv"
         // var spec2 = "js/stacked_bar_chart.vg.json";
-        var spec2 = "js/map.vg.json"
-        vegaEmbed('#map', spec2).then(function(result) {
+        var spec2 = "./visuliations/js/world-map.json"
+        vegaEmbed('#stacked-bar', spec2).then(function(result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
-    </script>
+    </script> -->
 
-    <div id="stacked_bar_chart"></div>
+
 
     <script type="text/javascript">
-        var data_location = "data/mean_data.csv"
-        // var spec2 = "js/stacked_bar_chart.vg.json";
-        var spec2 = "js/stacked_bar_chart.vg.json"
-        vegaEmbed('#stacked_bar_chart', spec2).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+
+        const area_chart = "visuliations/js/area_chart.json";
+        vegaEmbed('#area_chart', area_chart).then((area_chart) => {
         }).catch(console.error);
+    
+        const line_chart = "visuliations/js/line_chart.json";
+        vegaEmbed('#line_chart', line_chart).then((line_chart) => {
+        }).catch(console.error);
+    
+        const bar_chart = "visuliations/js/bar_chart.json";
+        vegaEmbed('#bar_chart', bar_chart).then((bar_chart) => {
+        }).catch(console.error);
+    
+        const world_map = "visuliations/js/world-map.json";
+        vegaEmbed('#world_map', world_map).then((world_map) => {
+        }).catch(console.error);
+    
+        const pie_chart = "visuliations/js/pie_chart.json";
+        vegaEmbed('#pie_chart', pie_chart).then((pie_chart) => {
+        }).catch(console.error);
+    
     </script>
-
-<div id="line"></div>
-
-<script type="text/javascript">
-    var data_location = "data/mean_data.csv"
-    // var spec2 = "js/stacked_bar_chart.vg.json";
-    var spec2 = "js/line.vg.json"
-    vegaEmbed('#line', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-</script>
-
-<div id="heat"></div>
-
-<script type="text/javascript">
-    var data_location = "data/mean_data.csv"
-    // var spec2 = "js/stacked_bar_chart.vg.json";
-    var spec2 = "js/heatmap.vg.json"
-    vegaEmbed('#heat', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-</script>
 
 </body>
 

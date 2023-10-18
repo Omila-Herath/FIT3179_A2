@@ -1,0 +1,121 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background":"#FAF9F6",
+    "width": 500,
+    "height": 400,
+    "title":{ "text" :"Sum of Deaths from 1990-2019 per Continent",
+    "fontSize": 24},
+    "data": {
+    "url": "visuliations/data/summed_values.csv"
+  },
+  "params": [
+    {
+      "name": "cause_of_death",
+      "value": "Meningitis",
+      "bind": {
+        "input": "select",
+        "options": [
+          
+          "Meningitis",
+          "Alzheimer_Disease_and_Other_Dementias",
+          "Parkinsons_Disease",
+          "Nutritional_Deficiencies",
+          "Malaria","Drowning",
+          "Interpersonal_Violence",
+          "Maternal_Disorders",
+          "HIV_AIDS",
+          "Drug_Use",
+          "Tuberculosis",
+          "Cardiovascular_Diseases",
+          "Lower_Respiratory_Infections",
+          "Neonatal_Disorders",
+          "Alcohol_Use",
+          "Self_Harm",
+          "Exposure_to_Nature",
+          "Diarrheal_Diseases",
+          "Environmental_Exposure",
+          "Neoplasms",
+          "Conflicts_and_Terrorism",
+          "Diabetes",
+          "Chronic_Kidney_Disease",
+          "Poisonings",
+          "Protein_Malnutrition",
+          "Road_Injuries",
+          "Chronic_Respiratory_Diseases",
+          "Cirrhosis",
+          "Digestive_Diseases",
+          "Fire",
+          "Acute_Hepatitis"
+          ],
+        "labels": [
+          "Meningitis",
+          "Alzheimer_Disease_and_Other_Dementias",
+          "Parkinsons_Disease",
+          "Nutritional_Deficiencies",
+          "Malaria","Drowning",
+          "Interpersonal_Violence",
+          "Maternal_Disorders",
+          "HIV_AIDS",
+          "Drug_Use",
+          "Tuberculosis",
+          "Cardiovascular_Diseases",
+          "Lower_Respiratory_Infections",
+          "Neonatal_Disorders",
+          "Alcohol_Use",
+          "Self_Harm",
+          "Exposure_to_Nature",
+          "Diarrheal_Diseases",
+          "Environmental_Exposure",
+          "Neoplasms",
+          "Conflicts_and_Terrorism",
+          "Diabetes",
+          "Chronic_Kidney_Disease",
+          "Poisonings",
+          "Protein_Malnutrition",
+          "Road_Injuries",
+          "Chronic_Respiratory_Diseases",
+          "Cirrhosis",
+          "Digestive_Diseases",
+          "Fire",
+          "Acute_Hepatitis"
+          ],
+          "name": "Cause of Death"
+ 
+      }
+    }
+  ],
+
+  "transform": [
+    {
+        "calculate": "datum[cause_of_death]",
+        "as": "chosen_cause"
+    }
+],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+      "field": "Continent",
+      "type": "nominal",
+      "title": "Continents"
+  },
+  "y": {
+  "field": "chosen_cause",
+  "type": "quantitative",
+  "title": "Number of Deaths"
+  },
+  "color": {
+    "field": "Continent",
+    "type": "nominal",
+    "scale": {"scheme": "tableau10"},
+    "legend": {
+        "title": "Continent"
+    }
+},
+"tooltip": [
+  {"field": "Continent", "type": "nominal", "title": "Continent"},
+  {"field": "chosen_cause", "type": "quantitative", "aggregate": "sum", "title": "Total Sum of Deaths"}
+]
+
+}
+}
+

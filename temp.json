@@ -1,0 +1,19 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "values": [
+      {"x": "A", "y": 5, "category": "Type1"},
+      {"x": "A", "y": 7, "category": "Type2"},
+      {"x": "B", "y": 3, "category": "Type1"},
+      {"x": "B", "y": 4, "category": "Type2"},
+      {"x": "C", "y": 8, "category": "Type1"},
+      {"x": "C", "y": 6, "category": "Type2"}
+    ]
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "x", "type": "ordinal", "axis": {"labelAngle": 0}},
+    "y": {"field": "y", "type": "quantitative"},
+    "color": {"field": "category", "type": "nominal", "legend": {"title": "Category"}}
+  }
+}

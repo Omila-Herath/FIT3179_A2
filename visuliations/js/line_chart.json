@@ -1,0 +1,165 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background":"#FAF9F6",
+    "title":{ "text" :"Sum of Deaths over time per Continent",
+    "fontSize": 24},
+    "width": 400,
+    "height": 400,
+    "data": {
+      "url": "visuliations/data/continent_year.csv"
+    },
+  
+  
+    "params": [
+      {
+        "name": "cause_of_death",
+        "value": "Meningitis",
+        "bind": {
+          "input": "select",
+          "options": [
+            
+            "Meningitis",
+            "Alzheimer_Disease_and_Other_Dementias",
+            "Parkinsons_Disease",
+            "Nutritional_Deficiencies",
+            "Malaria","Drowning",
+            "Interpersonal_Violence",
+            "Maternal_Disorders",
+            "HIV_AIDS",
+            "Drug_Use",
+            "Tuberculosis",
+            "Cardiovascular_Diseases",
+            "Lower_Respiratory_Infections",
+            "Neonatal_Disorders",
+            "Alcohol_Use",
+            "Self_Harm",
+            "Exposure_to_Nature",
+            "Diarrheal_Diseases",
+            "Environmental_Exposure",
+            "Neoplasms",
+            "Conflicts_and_Terrorism",
+            "Diabetes",
+            "Chronic_Kidney_Disease",
+            "Poisonings",
+            "Protein_Malnutrition",
+            "Road_Injuries",
+            "Chronic_Respiratory_Diseases",
+            "Cirrhosis",
+            "Digestive_Diseases",
+            "Fire",
+            "Acute_Hepatitis"
+            ],
+          "labels": [
+            "Meningitis",
+            "Alzheimer_Disease_and_Other_Dementias",
+            "Parkinsons_Disease",
+            "Nutritional_Deficiencies",
+            "Malaria","Drowning",
+            "Interpersonal_Violence",
+            "Maternal_Disorders",
+            "HIV_AIDS",
+            "Drug_Use",
+            "Tuberculosis",
+            "Cardiovascular_Diseases",
+            "Lower_Respiratory_Infections",
+            "Neonatal_Disorders",
+            "Alcohol_Use",
+            "Self_Harm",
+            "Exposure_to_Nature",
+            "Diarrheal_Diseases",
+            "Environmental_Exposure",
+            "Neoplasms",
+            "Conflicts_and_Terrorism",
+            "Diabetes",
+            "Chronic_Kidney_Disease",
+            "Poisonings",
+            "Protein_Malnutrition",
+            "Road_Injuries",
+            "Chronic_Respiratory_Diseases",
+            "Cirrhosis",
+            "Digestive_Diseases",
+            "Fire",
+            "Acute_Hepatitis"
+            ],
+            "name": "Cause of Death"
+   
+        }
+      }
+  
+    ],
+    "transform": [
+      {
+          "calculate": "datum[cause_of_death]",
+          "as": "chosen_cause"
+      }],
+  
+      
+  
+      "layer": [
+        
+        {
+          "mark": {"type": "line", "strokeCap": "round"},
+          "encoding": {
+            "x": {
+              "field": "Year",
+              "type": "temporal",
+              "title": "Year"
+            },
+            "y": {
+              "field": "chosen_cause",
+              "type": "quantitative",
+              "title": "Number of Deaths"
+            },
+            "color": {
+              "field": "Continent",
+              "type": "nominal",
+              "title": "Country",
+              "scale": {"scheme": "tableau10"}
+            },
+            "tooltip": [
+              {"field": "Continent", "type": "nominal", "title": "Country"},
+              {"field": "chosen_cause", "type": "quantitative","title": "Total Sum of Deaths"},
+              {"field": "Year", "type": "temporal",  "title": "Year","timeUnit": "year"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "area", "opacity": 0.25, "filled": true},
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {"field": "chosen_cause", "type": "quantitative", "stack":null},
+            "color": {
+              "field": "Continent",
+              "type": "nominal",
+              "legend": {"symbolOpacity": 1},
+              "scale": {"scheme": "tableau10"}
+            },
+            "tooltip": [
+              {"field": "Continent", "type": "nominal", "title": "Country"},
+              {"field": "chosen_cause", "type": "quantitative","title": "Total Sum of Deaths"},
+              {"field": "Year", "type": "temporal",  "title": "Year","timeUnit": "year"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "point", "size": 10, "filled": false},
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {"field": "chosen_cause", "type": "quantitative", "stack": null},
+            "color": {"field": "Continent", "type": "nominal","scale": {"scheme": "tableau10"}},
+            "tooltip": [
+              {"field": "Continent", "type": "nominal", "title": "Country"},
+              {"field": "chosen_cause", "type": "quantitative","title": "Total Sum of Deaths"},
+              {"field": "Year", "type": "temporal",  "title": "Year","timeUnit": "year"}
+            ]
+          }
+        }
+
+        
+      ]
+    }
+    
+    
+    
+    
+    
