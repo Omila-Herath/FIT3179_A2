@@ -4,20 +4,20 @@ div {
 
 body{
     height: 2000px;
-    background-color: #03045e;
+    background-color: lightgray;
 }
 .base {
     width: 20in;
     /* height: 32.7in; */
     margin: 0 auto;
-    background-color: #0077b6;
+    background-color: #FAFAFA;
     padding: 0.1in;
     border-radius: 25px
     
 }
 
 #top_div{
-    background: #0077b6;
+    background: #ECECEC;
 }
 
 #area_chart {
@@ -101,7 +101,7 @@ width: 1000px;
 }
 
 #line_text{
-    background-color: #0077b6;
+    background-color: #ECECEC;
 }
 .desc {
     font-size: 1.1em;
@@ -146,12 +146,12 @@ p {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color:#0077b6;
+    background-color:#ECECEC;
 }
 
 
 .subheading {
     font-size: 1.1em;
     font-family: Math;
-    background-color:#0077b6;
+    background-color:#ECECEC;
 }
