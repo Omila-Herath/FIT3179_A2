@@ -3,8 +3,8 @@
     "background":"#FAF9F6",
     "title":{ "text" :"Sum of Deaths over time per Continent",
     "fontSize": 24},
-    "width": 400,
-    "height": 400,
+    "width": 600,
+    "height": 600,
     "data": {
       "url": "visuliations/data/continent_year.csv"
     },

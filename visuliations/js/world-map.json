@@ -3,8 +3,8 @@
   "title":{ "text" :"Tuberculosis Deaths",
   "fontSize": 24},
   "background":"#FAF9F6",
-  "width": 800,
-  "height": 400,
+  "width": 1200,
+  "height": 600,
   "projection": {"type": "equalEarth"},
   "data": {
     "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",

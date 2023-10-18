@@ -4,22 +4,32 @@ div {
 
 body{
     height: 2000px;
-    background-color: darkgray;
+    background-color: #03045e;
 }
 .base {
     width: 20in;
     /* height: 32.7in; */
     margin: 0 auto;
-    background-color: #D3D3D3;
+    background-color: #0077b6;
     padding: 0.1in;
     border-radius: 25px
     
 }
 
-#area_chart {
-    align-self: center;
+#top_div{
+    background: #0077b6;
 }
 
+#area_chart {
+ left: 25%;
+}
+
+#area_text {
+   
+    margin-top: 20px;
+    text-align: center;
+    
+}
 .row-item {
     background-color:#FAF9F6;
     height: 100%;
@@ -82,13 +92,32 @@ select {
     display: flex;
 }
 
+#Tuberculosis_text{
+    text-align: center;
+    font-size: 50px;
+    background-color: #FAF9F6;
+width: 1000px;
+
+}
+
+#line_text{
+    background-color: #0077b6;
+}
 .desc {
     font-size: 1.1em;
     font-family: Math;
 }
 
+p {
+    font-size: 25px;
+}
 .col-left {
     margin-right: 0.2in;
+}
+
+#map_text {
+    background-color: red;
+    width: 50%;
 }
 
 .header {
@@ -99,7 +128,7 @@ select {
     font-size: 1.2em;
     font-family: Math, serif;
     border-radius: 25px;
-    background-color: #D3D3D3;
+    background-color: #ADD8E6;
 }
 
 .header-container {
@@ -117,12 +146,12 @@ select {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #D3D3D3;
+    background-color:#0077b6;
 }
 
 
 .subheading {
     font-size: 1.1em;
     font-family: Math;
-    background-color: #D3D3D3;
+    background-color:#0077b6;
 }

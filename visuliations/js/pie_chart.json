@@ -3,8 +3,8 @@
   "title":{ "text" :"Tuberculosis Deaths Per Continent",
   "fontSize": 24},
   "background":"#FAF9F6",
-  "height":400,
-  "width": 400,
+  "height":600,
+  "width": 1000,
   "data": {
     "url": "visuliations/data/tuberculosis_data.csv"
   },
@@ -29,7 +29,12 @@
       {"field": "Continent", "type": "nominal", "title": "Continent"},
       {"field": "Tuberculosis", "type": "quantitative", "title": "Deaths"},
       {"field": "Year", "type": "temporal", "title": "Year"}
-    ]
+    ],
+    "config": {
+      "tooltip": {
+        "fontSize": 20
+      }
+    }
   },
   "view": {"stroke": null}
 }
